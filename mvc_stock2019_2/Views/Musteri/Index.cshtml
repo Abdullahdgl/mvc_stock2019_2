@@ -1,0 +1,30 @@
+﻿@using mvc_stock2019_2.Models.Entity
+@model List<TBLMUSTERILER>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+	<tr>
+		<th>MUSTERİ ID</th>
+		<th>MUSTERİ ADI</th>
+		<th>MUSTERİ SOYADI</th>
+
+	</tr>
+
+	<tbody>
+		@foreach (var musteri in Model)
+		{
+			<tr>
+				<th>@musteri.MUSTERIID</th>
+				<td>@musteri.MUSTERIAD</td>
+				<td>@musteri.MUSTERISOYAD</td>
+
+			</tr>
+		}
+	</tbody>
+
+</table>
+
+<a href="/MUSTERI/YeniMusteri/" class="btn btn-primary">Yeni Muşteri Ekle</a> 
