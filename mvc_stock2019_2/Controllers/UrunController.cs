@@ -46,5 +46,13 @@ namespace mvc_stock2019_2.Controllers
 
 		}
 
+        public ActionResult SIL(int id)
+		{
+            var urun = db.TBLURUNLER.Find(id);
+            db.TBLURUNLER.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+		}
+
     }
 }
