@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using mvc_stock2019_2.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace mvc_stock2019_2.Controllers
 {
@@ -11,9 +13,10 @@ namespace mvc_stock2019_2.Controllers
     {
         // GET: Kategori
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa =1)
         {
-            var degerler = db.TBLKATEGORILER.ToList();
+            //var degerler = db.TBLKATEGORILER.ToList();
+            var degerler = db.TBLKATEGORILER.ToList().ToPagedList(sayfa,4);
             return View(degerler);
         }
 
